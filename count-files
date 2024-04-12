@@ -1,0 +1,21 @@
+import os
+
+def count_files(folder_path):
+    try:
+        # Get the list of files in the folder
+        files = os.listdir(folder_path)
+        # Count the number of files
+        num_files = len(files)
+        return num_files
+    except FileNotFoundError:
+        return "Folder not found."
+    except PermissionError:
+        return "Permission denied."
+
+def main():
+    folder_path = input("Enter the folder path: ")
+    num_files = count_files(folder_path)
+    print(f"Number of files in the folder: {num_files}")
+
+if __name__ == "__main__":
+    main()
